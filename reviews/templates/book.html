@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h2 class="center">Book Details</h2>
+
+    <div id="details" class="center">
+        <ul>
+            <li>ISBN: {{ book.isbn }}</li>
+            <li>Title: {{ book.title }}</li>
+            <li>Author: {{ book.author }}</li>
+            <li>Year: {{ book.year}}</li>
+        </ul>
+    </div>
+
+    <div id="reviews" class="center">
+        {% if reviews %}
+            <h5>User Reviews:</h5>
+            <ul>
+                {% for review in reviews %}
+                    <li>@{{ review.user }} rated:<br>
+                        Rating: {{ review.rating }}<br>
+                        "{{ review.text }}"
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div id="submit_review" class="center">
+        <h5>Submit a Review</h5>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            {{ form.rating.label }}<br>
+            {% for subfield in form.rating %}
+                <tr>
+                    &nbsp;&nbsp;&nbsp;
+                    <td>{{ subfield.label }}</td>
+                    <td>{{ subfield }}</td>
+                </tr>
+            {% endfor %}
+
+            <br>
+            {{ form.text.label }}<br>
+            {{ form.text(cols=32, rows=4) }}<br>
+            <p>{{ form.submit() }}</p>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+                {% for message in messages %}
+                    {% if success is sameas true %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    </div>
+
+{% endblock %}

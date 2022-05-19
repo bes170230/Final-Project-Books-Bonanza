@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>Hello, {{ user.username }}!</h2>
+    <h2 class="center">Hello, {{ user.username }}! </h2>
+    <h3 class="center">Find a book to review:</h3>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
                 {% for message in messages %}
@@ -10,7 +11,7 @@
                 {% endfor %}
         {% endif %}
     {% endwith %}
-    <form action="" method="post" novalidate>
+    <form class="center" action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
             <br>

@@ -4,13 +4,13 @@ from flask_login import LoginManager
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-gr_API_key = "IHK16b7ODRjS2TBA6dH2w"
+nyt_API_key = "LaXSo7pKM96pAjW2UBYtQOKKnAGRKSdW"
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'supersecret'
 
 os.environ[
-        "DATABASE_URL"] = "postgresql+psycopg2://postgres:admin@127.0.0.1:5432/ranger_books_87"
+        "DATABASE_URL"] = "postgresql+psycopg2://postgres:admin@127.0.0.1:5432/ranger_books_88"
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")

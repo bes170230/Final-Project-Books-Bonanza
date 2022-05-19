@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if line %}
+<h4>{{ line }}</h4><br>
+{% endif %}
+{% if results %}
+        <ul>
+            {% for book in results %}
+            <li>
+                <a href="{{ url_for('reviews.book_page', isbn=book.isbn) }}">
+                    {{ book.title }} by {{ book.author }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+{% endif %}
+{% endblock %}

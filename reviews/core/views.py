@@ -2,6 +2,7 @@ from flask import request, render_template, Blueprint, redirect, url_for
 from flask_login import current_user
 from reviews.book_reviews.forms import SearchForm
 from reviews.book_reviews.views import results
+import json, random, urllib.request
 
 core = Blueprint('core', __name__)
 

@@ -6,7 +6,7 @@ from models import Book
 from app import db
 
 os.environ[
-        "DATABASE_URL"] = "postgresql+psycopg2://postgres:admin@127.0.0.1:5432/ranger_books_87"
+        "DATABASE_URL"] = "postgresql+psycopg2://postgres:admin@127.0.0.1:5432/ranger_books_88"
 
 if not os.getenv("DATABASE_URL"):
     raise RuntimeError("DATABASE_URL is not set")

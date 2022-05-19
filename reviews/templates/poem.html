@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="center">Poem of the Day</h1>
+    <p class="center">Title:<a href="{{ poem["url"] }}"> {{ poem["title"] }} </a>
+      <br>Author :<a href="{{ poem["poet"]["url"] }}"> {{ poem["poet"]["name"] }} </a></p>
+    <p class="center"> {{ poem["content"] }} </p>
+{% endblock %}
