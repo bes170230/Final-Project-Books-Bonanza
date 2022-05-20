@@ -54,7 +54,8 @@ def book_page(isbn):
 @reviews.route('/<int:review_id>')
 def review(review_id):
     review = BookReview.query.get_or_404(review_id)
-    return render_template('review.html', rating=review.rating, date=review.date, review=review)
+    book = Book.query.get_or_404(review.book_isbn)
+    return render_template('review.html', rating=review.rating, date=review.date, review=review, book=book)
 
 @reviews.route('/<int:review_id>/update', methods=['GET', 'POST'])
 @login_required

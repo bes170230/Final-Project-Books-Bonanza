@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="jumbotron">
-        <h1> Book ISBN: {{review.book_isbn}}</h1>
+        <h1>{{book.title}} by {{book.author}}</h1>
         <h2> Rating: {{review.rating}} </h2>
         <p>{{review.text}}</p>
         {% if review.author == current_user %}
