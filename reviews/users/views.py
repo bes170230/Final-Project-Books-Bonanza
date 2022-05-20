@@ -47,5 +47,5 @@ def login():
 def user_reviews(username):
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    reviews = BookReview.query.filter_by(reviewer=user).order_by(BookReview.date.desc()).paginate(page=page, per_page=5)
-    return render_template('user_reviews.html', reviews=reviews, user=user)
+    reviews = BookReview.query.filter_by(author=user).order_by(BookReview.date.desc()).paginate(page=page, per_page=5)
+    return render_template('user_reviews.html', reviews=reviews, user=user, username=username)

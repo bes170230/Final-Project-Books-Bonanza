@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(60), unique=True, index=True)
     username = db.Column(db.String(60), unique=True, index=True)
     password_hash = db.Column(db.String(120))
-    reviews = db.relationship('BookReview', backref='reviewer', lazy=True)
+    reviews = db.relationship('BookReview', backref='author', lazy=True)
 
     def __init__(self, email, username, password):
         self.email = email
@@ -34,7 +34,6 @@ class BookReview(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, db.ForeignKey('users.username'), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    title = db.Column(db.String(100))
     text = db.Column(db.Text, nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     book_isbn = db.Column(db.String, db.ForeignKey("books.isbn"), nullable=False)
