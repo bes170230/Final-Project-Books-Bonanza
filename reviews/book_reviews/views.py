@@ -9,7 +9,6 @@ from reviews import db
 from reviews.models import BookReview
 from reviews.book_reviews.forms import ReviewForm
 
-
 reviews = Blueprint('reviews', __name__)
 
 @reviews.route('/results', methods=['GET'])
